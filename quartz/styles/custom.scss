@@ -1,5 +1,31 @@
 @use "./base.scss";
 
+// Active file highlight in explorer
+#explorer-content {
+  a {
+    transition: all 0.2s ease;
+    
+    &.active {
+      color: #1a73e8 !important; /* 구글 블루 계열의 진한 파란색 */
+      font-weight: 600;
+      position: relative;
+      padding-left: 1rem;
+      
+      &::before {
+        content: "•";
+        color: #1a73e8;
+        position: absolute;
+        left: 0;
+        font-weight: bold;
+      }
+      
+      &:hover {
+        color: #0d47a1 !important; /* 호버 시 더 진한 파란색 */
+      }
+    }
+  }
+}
+
 // put your custom CSS here!
 nav .tree-item {
     padding-left: 1rem;
@@ -19,4 +45,3 @@ nav .tree-item {
     font-style: italic;
     color: #999;
   }
-  

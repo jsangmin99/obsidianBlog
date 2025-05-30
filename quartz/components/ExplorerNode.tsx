@@ -192,7 +192,11 @@ export function ExplorerNode({ node, opts, fullPath, fileData }: ExplorerNodePro
       {node.file ? (
         // Single file node
         <li key={node.file.slug}>
-          <a href={resolveRelative(fileData.slug!, node.file.slug!)} data-for={node.file.slug}>
+          <a 
+            href={resolveRelative(fileData.slug!, node.file.slug!)}
+            data-for={node.file.slug}
+            class={node.file.slug === fileData.slug ? 'active' : ''}
+          >
             {node.displayName}
           </a>
         </li>
@@ -219,7 +223,11 @@ export function ExplorerNode({ node, opts, fullPath, fileData }: ExplorerNodePro
               {/* render <a> tag if folderBehavior is "link", otherwise render <button> with collapse click event */}
               <div key={node.name} data-folderpath={folderPath}>
                 {folderBehavior === "link" ? (
-                  <a href={href} data-for={node.name} class="folder-title">
+                  <a 
+                    href={href} 
+                    data-for={node.name} 
+                    class={`folder-title ${fileData.slug?.startsWith(folderPath) ? 'active' : ''}`}
+                  >
                     {node.displayName} <span class="file-count">({fileCount})</span>
                   </a>
                 ) : (
