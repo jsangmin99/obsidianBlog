@@ -162,6 +162,19 @@ type ExplorerNodeProps = {
   fullPath?: string
 }
 
+// 폴더 내의 파일 수를 계산하는 함수
+function countFiles(node: FileNode): number {
+  if (node.file) {
+    return 1;
+  }
+  
+  let count = 0;
+  for (const child of node.children) {
+    count += countFiles(child);
+  }
+  return count;
+}
+
 export function ExplorerNode({ node, opts, fullPath, fileData }: ExplorerNodeProps) {
   // Get options
   const folderBehavior = opts.folderClickBehavior
@@ -170,6 +183,9 @@ export function ExplorerNode({ node, opts, fullPath, fileData }: ExplorerNodePro
   // Calculate current folderPath
   const folderPath = node.name !== "" ? joinSegments(fullPath ?? "", node.name) : ""
   const href = resolveRelative(fileData.slug!, folderPath as SimpleSlug) + "/"
+
+  // 폴더인 경우 자식 파일 수 계산
+  const fileCount = node.file ? 0 : countFiles(node)
 
   return (
     <>
@@ -204,11 +220,11 @@ export function ExplorerNode({ node, opts, fullPath, fileData }: ExplorerNodePro
               <div key={node.name} data-folderpath={folderPath}>
                 {folderBehavior === "link" ? (
                   <a href={href} data-for={node.name} class="folder-title">
-                    {node.displayName}
+                    {node.displayName} <span class="file-count">({fileCount})</span>
                   </a>
                 ) : (
                   <button class="folder-button">
-                    <span class="folder-title">{node.displayName}</span>
+                    <span class="folder-title">{node.displayName} <span class="file-count">({fileCount})</span></span>
                   </button>
                 )}
               </div>
