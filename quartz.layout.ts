@@ -54,7 +54,24 @@ export const defaultListPageLayout: PageLayout = {
     Component.MobileOnly(Component.Spacer()),
     Component.Search(),
     Component.Darkmode(),
-    Component.DesktopOnly(Component.Explorer()),
+    Component.DesktopOnly(Component.Explorer({
+      title: "📁 탐색기",  // 원하는 제목으로 변경
+      folderDefaultState: "collapsed",
+      useSavedState: true,
+      mapFn: (node) => {
+        // 폴더 아이콘 커스터마이징
+        if (node.file) {
+          if (node.file.slug === "index") {
+            node.displayName = "🏠"
+          } else if (node.file.slug?.startsWith("blog")) {
+            node.displayName = "📝"
+          } else if (node.file.slug?.startsWith("projects")) {
+            node.displayName = "🚀"
+          }
+        }
+        return node
+      }
+    })),
   ],
   right: [],
 }

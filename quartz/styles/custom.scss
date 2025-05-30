@@ -1,3 +1,71 @@
 @use "./base.scss";
 
 // put your custom CSS here!
+// styles/custom.scss
+.sidebar {
+    .tree-item {
+        position: relative;
+        margin: 0.25rem 0;
+        padding: 0.4rem 0.8rem;
+        border-radius: 6px;
+        transition: all 0.2s ease;
+
+        // 폴더 아이템
+        &.folder {
+            font-weight: 600;
+            color: var(--primary);
+            margin-top: 1rem;
+
+            &::before {
+                content: "📁 ";
+            }
+
+            &.collapsed::before {
+                content: "📂 ";
+            }
+        }
+
+        // 파일 아이템
+        &.file {
+            padding-left: 1.2rem;
+            margin-left: 0.5rem;
+            border-left: 2px solid var(--lightgray);
+
+            &::before {
+                content: "📄 ";
+                margin-right: 0.3rem;
+            }
+        }
+
+        // 호버 효과
+        &:hover {
+            background: var(--lightgray);
+            transform: translateX(4px);
+        }
+
+        // 활성화된 항목
+        &.active {
+            background: var(--primary);
+            color: white;
+            font-weight: 600;
+
+            &::before {
+                color: white;
+            }
+        }
+    }
+
+    // 하위 레벨 아이템 들여쓰기
+    .tree-item-children {
+        margin-left: 0.8rem;
+        padding-left: 0.5rem;
+        border-left: 1px dashed var(--lightgray);
+    }
+
+    // 구분선
+    .spacer {
+        height: 1px;
+        background: var(--lightgray);
+        margin: 1rem 0;
+    }
+}
