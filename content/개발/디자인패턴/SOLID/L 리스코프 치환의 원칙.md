@@ -3,6 +3,7 @@ tags:
   - 디자인패턴
   - SOLID
   - LSP
+publish: true
 ---
 
 ## 1. 리스코프 치환의 원칙

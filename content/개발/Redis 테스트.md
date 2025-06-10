@@ -1,3 +1,8 @@
+---
+tags:
+  - Redis
+publish: false
+---
 
 - **성능 개선 효과**
     - Redis 캐싱을 도입하면 Read 속도가 최대 **20배** 향상됨.

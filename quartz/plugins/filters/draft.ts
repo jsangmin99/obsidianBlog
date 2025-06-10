@@ -5,6 +5,7 @@ export const RemoveDrafts: QuartzFilterPlugin<{}> = () => ({
   shouldPublish(_ctx, [_tree, vfile]) {
     const draftFlag: boolean =
       vfile.data?.frontmatter?.draft === true || vfile.data?.frontmatter?.draft === "true"
-    return !draftFlag
+    const publishedFlag: boolean = vfile.data?.frontmatter?.publish !== false
+    return !draftFlag && publishedFlag
   },
 })
