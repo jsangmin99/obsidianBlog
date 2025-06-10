@@ -27,7 +27,7 @@ cd ~/ObsidianFolder/5.blog
 > 나와같은경우는 5.blog 안에 하위모듈(ObsidianBlog Repo) 를 넣을것이다.
 ---
 
-## 2. ➕ Submodule 추가
+## 2-2. ➕ Submodule 추가
 ``` bash
 git submodule add [서브모듈(레포)의 깃허브주소] [이름]
 ```
@@ -37,7 +37,7 @@ git submodule add [서브모듈(레포)의 깃허브주소] [이름]
 - `ObsidianBlog`는 현재 경로 기준으로 만들어질 폴더명이다. 이 명령어로 `.gitmodules` 파일도 자동 생성된다
 ---
 
-## 3. 🗂 변경사항 스테이징 후 커밋
+## 2-3. 🗂 변경사항 스테이징 후 커밋
 
 ``` bash
 git add .gitmodules ObsidianBlog 
@@ -49,7 +49,7 @@ git push origin main
 
 ---
 
-## 4. 🧑‍💻 다른 사용자가 clone 받을 경우
+## 2-4. 🧑‍💻 다른 사용자가 clone 받을 경우
 ``` bash
 git clone --recurse-submodules https://github.com/me/my-main-repo.git
 ```
@@ -61,7 +61,7 @@ git submodule init git submodule update
 
 ---
 
-## 5. 🔄 Submodule 내용 최신화할 때
+## 2-5. 🔄 Submodule 내용 최신화할 때
 ``` bash
 cd ObsidianFolder/5.blog/ObsidianBlog        # 서브모듈 디렉토리로 이동 
 git checkout main      # 작업 브랜치로 이동 (필요시) 
