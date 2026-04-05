@@ -1,7 +1,10 @@
 ---
+title: update와 upgrade 차이 (by RHEL, Debian)
+description: RHEL 계열과 Debian 계열에서 update와 upgrade 명령이 어떻게 다르게 동작하는지 정리한 비교 문서입니다.
 dg-home: true
 dg-publish: true
 tags: server, ubuntu, rocky, linux
+comments: true
 ---
 
 ## 1. 내가 기존에 알고있는 방식

@@ -1,7 +1,10 @@
 ---
+title: Redis 테스트
+description: Redis 도입 시 성능 개선 효과와 비용 효율성, 캐시 전략 관점에서 검토한 메모입니다.
 tags:
   - Redis
 publish: false
+comments: false
 ---
 
 - **성능 개선 효과**

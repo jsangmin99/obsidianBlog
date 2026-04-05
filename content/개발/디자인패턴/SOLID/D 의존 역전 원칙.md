@@ -1,8 +1,11 @@
 ---
+title: SOLID - D 의존 역전 원칙
+description: 의존 역전 원칙의 핵심과 추상화에 의존하는 구조가 왜 변경과 테스트에 유리한지 정리한 글입니다.
 tags:
   - 디자인패턴
   - SOLID
   - DIP
+comments: true
 ---
 ### **의존 역전 원칙 (Dependency Inversion Principle)**
 

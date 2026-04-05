@@ -1,9 +1,12 @@
 ---
+title: SOLID - L 리스코프 치환의 원칙
+description: 리스코프 치환 원칙이 무엇이며 상속 구조에서 어떤 규약을 지켜야 하는지 예시 중심으로 정리한 글입니다.
 tags:
   - 디자인패턴
   - SOLID
   - LSP
 publish: true
+comments: true
 ---
 
 ## 1. 리스코프 치환의 원칙
