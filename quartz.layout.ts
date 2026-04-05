@@ -53,10 +53,7 @@ export const defaultContentPageLayout: PageLayout = {
       }),
       condition: (props) => props.fileData.slug === "index",
     }),
-    Component.ConditionalRender({
-      component: Component.Graph(),
-      condition: (props) => props.fileData.slug !== "index",
-    }),
+    Component.Graph(),
     Component.ConditionalRender({
       component: Component.DesktopOnly(Component.TableOfContents()),
       condition: (props) => props.fileData.slug !== "index",
