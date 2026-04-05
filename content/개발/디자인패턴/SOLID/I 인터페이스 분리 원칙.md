@@ -1,8 +1,11 @@
 ---
+title: SOLID - I 인터페이스 분리 원칙
+description: 인터페이스 분리 원칙의 핵심과 비대한 인터페이스를 역할별로 분리해야 하는 이유를 실무 예시로 설명합니다.
 tags:
   - 디자인패턴
   - SOLID
   - ISP
+comments: true
 ---
 
 ## 1. 인터페이스 분리원칙

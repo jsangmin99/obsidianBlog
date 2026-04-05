@@ -1,7 +1,10 @@
 ---
+title: SSH 키생성 및 접속
+description: SSH 키를 생성하고 서버에 등록한 뒤 비밀번호 없이 접속하는 기본 흐름을 정리한 가이드입니다.
 dg-home: true
 dg-publish: true
 tags: server, ssh
+comments: true
 ---
 
 ## 클라이언트에서 SSH 키 생성

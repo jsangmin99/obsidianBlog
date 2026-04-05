@@ -1,6 +1,9 @@
 ---
+title: Git Submodule을 통한 여러 레포 관리
+description: Git Submodule로 여러 저장소를 하나의 프로젝트 안에서 연결하고 관리하는 방법을 실제 흐름 중심으로 정리했습니다.
 tags: git, submodule
 publish: true
+comments: true
 ---
 # 1. Submodule 이란?
 - 레포지토리가 여러개로 분산되어 있는데 이를 한군데서 관리하느것이 쉽지 않다.
