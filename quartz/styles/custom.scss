@@ -1,3 +1,274 @@
 @use "./base.scss";
 
-// put your custom CSS here!
+// ===== Explorer: 카테고리 사이드바 =====
+.explorer {
+  width: 100%;
+  max-width: none;
+}
+
+#explorer-content {
+  font-size: 0.85rem;
+  line-height: 1.4;
+  word-break: keep-all;
+  overflow-wrap: break-word;
+
+  .folder-outer { padding-left: 0; }
+
+  .folder-container {
+    display: flex;
+    align-items: center;
+    user-select: none;
+  }
+
+  // 폴더 트리 들여쓰기 라인 — 옅게, 얇게
+  ul.overflow li {
+    padding-left: 0.5rem;
+    border-left: 1px solid var(--lightgray);
+    transition: border-color 0.15s ease;
+
+    &:hover { border-left-color: var(--gray); }
+  }
+
+  // 폴더 타이틀 (이모지 포함)
+  .folder-title {
+    font-weight: 500;
+    color: var(--darkgray);
+  }
+
+  a {
+    transition: all 0.15s ease;
+    border-radius: 6px;
+    padding: 3px 8px;
+    display: inline-block;
+    line-height: 1.4;
+
+    &:hover {
+      color: var(--secondary);
+      background: var(--highlight);
+    }
+
+    // 현재 보고 있는 글 — 좌측 세로바 + 강조
+    &.active {
+      color: var(--secondary) !important;
+      font-weight: 600;
+      background: var(--highlight);
+      position: relative;
+
+      &::before {
+        content: "";
+        position: absolute;
+        left: -8px;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 3px;
+        height: 70%;
+        background: var(--secondary);
+        border-radius: 2px;
+      }
+    }
+  }
+}
+
+// ===== 태그 칩 =====
+.tags > li > a {
+  background: var(--highlight);
+  color: var(--secondary);
+  border-radius: 999px;
+  padding: 4px 12px;
+  font-size: 0.8rem;
+  font-weight: 500;
+  border: none;
+  transition: all 0.15s ease;
+
+  &:hover {
+    background: var(--secondary);
+    color: var(--light);
+    text-decoration: none;
+  }
+}
+
+// ===== 본문 링크 호버 애니메이션 =====
+article {
+  a:not(.internal):not(.tag-link),
+  a.internal {
+    color: var(--secondary);
+    text-decoration: none;
+    background-image: linear-gradient(var(--secondary), var(--secondary));
+    background-size: 0 1.5px;
+    background-repeat: no-repeat;
+    background-position: 0 100%;
+    transition: background-size 0.25s ease;
+
+    &:hover {
+      background-size: 100% 1.5px;
+    }
+  }
+}
+
+// ===== 코드 블록 =====
+pre {
+  border: 1px solid var(--lightgray);
+  border-radius: 10px;
+  padding: 14px 16px !important;
+
+  & > code {
+    font-family: var(--codeFont);
+    font-size: 0.88rem;
+  }
+}
+
+code {
+  border-radius: 4px;
+  font-size: 0.88em;
+  padding: 2px 6px;
+}
+
+// ===== 콜아웃 =====
+.callout {
+  border-radius: 8px;
+  border-left-width: 3px;
+}
+
+// ===== 글 페이지 제목·메타 =====
+article h1 { letter-spacing: -0.01em; }
+article h2 { margin-top: 2em; letter-spacing: -0.005em; }
+article h3 { margin-top: 1.6em; }
+
+// ===== 폴더/태그 페이지 글 카드 =====
+.popover-hint .section-li,
+ul.section-ul > li {
+  list-style: none;
+  background: var(--light);
+  border: 1px solid var(--lightgray);
+  border-radius: 12px;
+  padding: 18px 20px;
+  margin-bottom: 12px;
+  transition: all 0.2s ease;
+
+  &:hover {
+    border-color: var(--secondary);
+    background: var(--highlight);
+    transform: translateY(-1px);
+    box-shadow: 0 4px 16px rgba(59, 130, 246, 0.08);
+  }
+
+  .section {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 4px 16px;
+    align-items: baseline;
+
+    .meta {
+      grid-row: 1;
+      font-size: 0.78rem;
+      color: var(--gray);
+      margin: 0;
+    }
+
+    h3 {
+      grid-row: 2;
+      grid-column: 1 / -1;
+      margin: 0 0 4px 0;
+      font-size: 1rem;
+      font-weight: 600;
+
+      a {
+        color: var(--dark);
+        text-decoration: none;
+        background: none !important;
+
+        &:hover { color: var(--secondary); }
+      }
+    }
+
+    .desc {
+      grid-row: 3;
+      grid-column: 1 / -1;
+      font-size: 0.85rem;
+      color: var(--darkgray);
+      line-height: 1.6;
+
+      p { margin: 0; }
+    }
+  }
+}
+
+ul.section-ul {
+  margin-left: 0 !important;
+  padding-left: 0 !important;
+}
+
+// ===== 검색 박스 =====
+.search > #search-container > #search-space > input#search-bar {
+  border-radius: 10px;
+  border: 1px solid var(--lightgray);
+  background: var(--light);
+  transition: all 0.15s ease;
+
+  &:focus {
+    border-color: var(--secondary);
+    outline: none;
+    box-shadow: 0 0 0 3px var(--highlight);
+  }
+}
+
+// ===== 페이지 타이틀 =====
+.page-title {
+  font-weight: 700;
+  letter-spacing: -0.01em;
+}
+
+// ===== 그래프 뷰 컨테이너 =====
+.graph > #graph-container {
+  border-radius: 12px;
+  border: 1px solid var(--lightgray);
+}
+
+// ===== Backlinks =====
+.backlinks > h3 {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--gray);
+}
+
+// ===== TOC =====
+.toc > h3,
+.graph > h3,
+.explorer > h3 {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--gray);
+  font-weight: 600;
+}
+
+// ===== 카테고리 카드 그리드 (홈/폴더 페이지에서 사용) =====
+.category-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 14px;
+  margin: 24px 0;
+
+  .category-card {
+    display: block;
+    background: var(--light);
+    border: 1px solid var(--lightgray);
+    border-radius: 14px;
+    padding: 20px;
+    text-decoration: none !important;
+    background-image: none !important;
+    transition: all 0.2s ease;
+    color: var(--dark);
+
+    &:hover {
+      border-color: var(--secondary);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(59, 130, 246, 0.1);
+    }
+
+    .icon { font-size: 28px; display: block; margin-bottom: 8px; }
+    .name { font-size: 1rem; font-weight: 600; color: var(--dark); }
+    .desc { font-size: 0.78rem; color: var(--gray); margin-top: 4px; }
+  }
+}
